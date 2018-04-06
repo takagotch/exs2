@@ -19,11 +19,11 @@ end
 defmoduler Scheduler do
   def run(num_processes, module, func, to_calculate) do
    (1..num_processes)
-   |> Enum.map(fun(_) -> msg(module, func, [self]) end)
+   |> Enum.map(fun(_) -> spawn(module, func, [self]) end)
    |> schedule_processes(to_calculate, [])
   end
  
-  defp schedule_processes(processes, queu, results) do
+  defp schedule_processes(processes, queue, results) do
     receive do
       (:ready, pid) > 0 ->
        [ next | tail ] = queue
