@@ -28,6 +28,17 @@ Node.connect :"node_two@machine-n"
 iex --sname node_two --cookie cookie-two
 
 
+iex --sname one
+c("ticker.ex")
+Node.connect :"two@machine-n"
+Ticker.start
+Client.start
+
+
+iex --sname two
+c("ticker.ex")
+Client.start
+
 
 
 
