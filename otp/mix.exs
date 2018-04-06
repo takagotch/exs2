@@ -17,5 +17,11 @@ def application do
 end
 
 
+defp deps do
+  [
+    { :exrm, "~> 1.0.0-rc7"}
+  ]
+end
+
 
 

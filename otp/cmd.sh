@@ -75,6 +75,9 @@ mix compile
 
 
 
+mix do deps.get, deps.compile
+mix release
+
 
 
 
