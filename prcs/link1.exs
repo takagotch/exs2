@@ -5,7 +5,7 @@ defmodule Link1 do
     sleep 500
   end
   def run do
-    msg(Link1, :sad_function, [])
+    spawn(Link1, :sad_function, [])
     receive do
       msg ->
         IO.puts "MSG REC: #{inspect msg}"
