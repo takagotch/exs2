@@ -7,10 +7,10 @@ defmodule Link3 do
   end
   def run do
     Process.flat(:trap_exit, true)
-    msg_link(Link3, :sad_function, [])
+    spawn_link(Link3, :sad_function, [])
     receive do
       Process.flag(:trap_exit, true)
-      msg_link(Link3, :sad_function, [])
+      spawn_link(Link3, :sad_function, [])
       receive do
         msg ->
 	IO.puts "MSG REC: #{inspect msg}"
