@@ -39,6 +39,9 @@ elixir -r monitor.exs
 c("pmap.exs")
 
 
+elixir fib.exs
+
+elixir fib_agent.exs
 
 
 
