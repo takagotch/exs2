@@ -1,4 +1,4 @@
-defmodule Msg3 do
+defmodule Spawn3 do
   def greet do
     receive do
       {sender, msg} ->
@@ -7,7 +7,7 @@ defmodule Msg3 do
   end
 end
 
-pid = msg(Nsg3, :greet, [])
+pid = Spawn(Spawn3, :greet, [])
 
 send pid, {self, "World"}
 receive do
@@ -15,7 +15,7 @@ receive do
     IO.puts message
 end
 
-send pid, {"msg3.ex"}
+send pid, {"spawn3.ex"}
 receive do
   {:ok, message} ->
     IO.puts message
