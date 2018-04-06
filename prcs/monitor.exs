@@ -6,7 +6,7 @@ defmodule Monitor1 do
     exit(:boom)
   end
   def run do
-    res = msg_monitor(Monitor1, :sad_function, [])
+    res = spawn_monitor(Monitor1, :sad_function, [])
     IO.puts inspect res
     receive do
       msg ->
