@@ -151,6 +151,16 @@ defmodule Sequence.Server do
 end
 
 
+def code_change("0", old_state = { current_number, stash_pid }, _extra) do
+  new_state = %State{current_number: current_number,
+                     stash_pid: stash_pid,
+		     delta: 1
+		     }
+  Logger.info "Changeing code from 0 to 1"
+  Logger.info inspect(old_state)
+  Logger.info inspect(new_state)
+  { :ok, new_state }
+end
 
 
 

@@ -32,3 +32,15 @@ end
 
 
 
+def project do
+  [app: :sequence,
+   version: "0.0.3",
+   deps: deps ]
+end
+
+
+
+
+
+
+

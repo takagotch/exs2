@@ -106,6 +106,17 @@ Sequence.Server.next_number
 Sequence.Server.next_number
 
 
+mix release
+ssh localhost mkdir ~/deploy/releases/0.0.3/
+scp rel/sequence/releases/0.0.3/sequence.tar.gz localhost:deploy/releases/0.0.3/
+
+ssh localhost ~/deploy/bin/sequence upgrade 0.0.3
+Sequence.Server.next_number
+Sequence.Server.increment_number 10
+Sequence.Server.next_number
+Sequence.Server.next_number
+
+
 
 
 
