@@ -40,6 +40,15 @@ c("ticker.ex")
 Client.start
 
 
+iex --sname one
+iex --sname two
+Node.connect(:"one@machine-n")
+:global.register_name(:two, :erlang.group_leader)
+
+two = :global.whereis_name :two
+IO.puts(two, "Hello")
+IO.puts(two, "World!")
+
 
 
 
