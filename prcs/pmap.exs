@@ -3,7 +3,7 @@ defmodule Parallel do
     me = self
     collection
     |> Enum.map(fn (elem) ->
-      msg_link fun -> (send me, { self, fun.(elem) }) end
+      spawn_link fun -> (send me, { self, fun.(elem) }) end
       end)
     |> Enum.map(fn (pid) ->
       receive do { ^pid, result } -> result end
@@ -19,7 +19,7 @@ def module Parallel do
     me = self
     collection
     |> Enum.map(fn (elem) ->
-      msg_link fun -> (send me, { self, fun.(elem) }) end
+      spawn_link fun -> (send me, { self, fun.(elem) }) end
       end)
     |> Enum.map(fn (pid) ->
       receive do { _pid, result } -> result end
