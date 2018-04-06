@@ -30,3 +30,17 @@ elixir --erl "+P 1000000" -r chain.ex -e "Chain.run(400_000)"
 elixir --erl "+P 10000000" -r chain.ex -e "Chain.run(1_000_000)"
 
 
+
+elixir -r link1.exs
+elixir -r link2.exs
+elixir -r link3.exs
+elixir -r monitor.exs
+
+c("pmap.exs")
+
+
+
+
+
+
+
