@@ -24,4 +24,11 @@ defp deps do
 end
 
 
+def project do
+  [ app: :sequence,
+    version: "0.0.2",
+    deps: deps ]
+end
+
+
 

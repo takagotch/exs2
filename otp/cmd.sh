@@ -78,6 +78,33 @@ mix compile
 mix do deps.get, deps.compile
 mix release
 
+ssh localhost mkdir ~/deploy
+scp rel/sequence/releases/0.0.1/sequence.tar.gz localhost:deploy
+ssh localhost tar -x -f ~/deploy/sequence.tar.gz -C ~/deploy
+
+ssh -t localhost ~/deploy/bin/sequence console
+Sequence.Server.next_number
+Sequence.Server.next_number
+
+mix release
+
+ssh localhost mkdir deploy/releases/0.0.2
+scp rel/sequence/release/0.0.2/sequence.tar.gz localhost:deploy/releases/0.0.2
+
+ssh localhost ~/deploy/bin/sequence upgrade 0.0.2
+Sequence.Server.next_number
+Sequence.Server.next_number
+
+shh localhost ~/deploy/bin/sequence downgrade 0.0.1
+Sequence.Server.next_number
+Sequence.Server.next_number
+
+ssh localhost ~/deploy/bin/sequence upgrade 0.0.2
+Sequence.Server.next_number
+Sequence.Server.increment_number 10
+Sequence.Server.next_number
+Sequence.Server.next_number
+
 
 
 
