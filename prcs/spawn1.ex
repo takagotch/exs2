@@ -8,7 +8,7 @@ defmodule Spawn1 do
 end
 
 
-pid = spqwn(Spqwn1, :greet, [])
+pid = spawn(Spawn1, :greet, [])
 send pid, {self, "World" }
 
 receive do
