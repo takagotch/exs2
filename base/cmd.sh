@@ -157,7 +157,51 @@ str
 name = "str"
 "str #{String.capitalize name}!"
 
+//Enum
+list = Enum.to_list 1..5
+Enum.concat([1,2,3], [4,5,6])
+Enum.concat [1,2,3], 'abc'
+Enum.map(list, &(&1 * 10))
+Enum.map(list, &String.duplicate("*", &1))
 
+Enum.at(10..20, 3)
+Enum.at(10..20, 20)
+Enum.at(10..20, 20, :no_one_here)
+Enum.filter(list, &(&1 > 2))
+require Integer
+Enum.filter(list, &Integer.is_even/1)
+Enum.reject(list, &Integer.is_even/1)
+
+Enum.sort ["str", "str", "str", "str", "str"]
+Enum.sort [], &()
+Enum.max []
+Enum.max_by [],
+&String.length/1
+
+Enum.take()
+Enum.take_every list, 2
+Enum.take_while()
+Enum.split(list, 3)
+Enum.split_while(list, &(&1 < 4))
+
+Enum.join(list)
+Enum.join(list, ", ")
+
+Enum.all?(list, &(&1 < 4))
+Enum.any?(list, &(&1 < 4))
+Enum.member?(list, 4)
+Enum.empty?(list)
+
+Enum.all?()
+Enum.any?()
+Enum.member?()
+Enum.empty?()
+
+Enum.zip()
+Enum.with_index()
+Enum.reduce()
+Enum.reduce()
+Enum.reduce()
 
 
 
