@@ -26,8 +26,19 @@ raise RuntimeError, message: "override message"
 
 
 
+[ 'str' | 'str' ]
 
-
+b = <<  1, 2, 3 >>
+byte_size b
+bit_size b
+b = << 1:size(2), l::size(3) >>
+byte_size b
+byte_size b
+int = << 1 >>
+float = << 2.5 :: float >>
+mix = << int :: binary, float :: binary >>
+<< sign::size(1), exp::size(11), mantissa::size(52) >> = << 3.14159::float >>
+(1 + mantissa / :math.pow(2, 52) * :math.pow(2, exp-1023))
 dps = "0x/0y"
 String.lenght dps
 byte_size dps
@@ -76,5 +87,13 @@ String.valid_character? "Dog"
 center(["cat", "zebra", "elephant"])
 
 
+
+c("parse.exs")
+Parse.number('123')
+Parse.number('-123')
+Parse.number('+123')
+Parse.number('+9')
+Parse.number('+a')
+Parse.number('+a')
 
 
