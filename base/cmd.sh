@@ -96,4 +96,74 @@ Parse.number('+9')
 Parse.number('+a')
 Parse.number('+a')
 
+str = 'str'
+is_list str
+length str
+Enum.reverse str
+[ 11, 22, 33 ]
+str = 'wombat'
+:io.format "-w-n", [ str ]
+List.to_tuple str
+str ++ [0]
+'0x/0y'
+'pole' ++ 'vault'
+'str' -- 'str'
+List.zip [ 'abc', '123']
+[ head | tail ] = 'str'
+head
+tail
+[ head | tail ]
+
+
+~r"""
+hello
+"""
+
+IO.puts "str"
+IO.write "
+  str
+  string
+"
+Io.puts "end"
+
+IO.put "start"
+IO.write """
+  str
+  string
+"""
+IO.puts "end"
+
+-C
+-c
+-R
+-r
+-S
+-s
+-W
+-w
+
+~C[1\n2#{1+2}]
+~c"1\2#{1+2}"
+~S[1\n2#{1+2}]
+~s/1\n2#{1+2}/
+~W[str c#('a')t str str str]
+~w[str c#('a')t str str str]
+
+~w"""
+str
+str
+str
+"""
+name = "str"
+"str #{String.capitalize name}!"
+
+
+
+
+
+
+
+
+
+
 
