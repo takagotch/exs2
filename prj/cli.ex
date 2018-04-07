@@ -110,4 +110,10 @@ def process({user, project, count}) do
 end
 
 
+def main(argv) do
+  argv
+    |> parse_args
+    |> process
+end
+
 

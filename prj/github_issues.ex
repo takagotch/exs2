@@ -69,6 +69,45 @@ def issues_url(user, project) do
 end
 
 
+defmodule Issues.Github do
+  require Logger
+
+  @user_agent [ {"User-agent", "Elixir tky@ex.com"} ]
+
+  def fetch(user, project) do
+    Logger.info "Fetching user #{user}'s project #{project}"
+    issues_url(user, project)
+    |> HTTPoisonget(@user_agent)
+    |> handle_response
+  end
+
+  def handle_response({:ok, %{status_code: 200, body: body}}) do
+    Logger.info ""
+    Logger.debug fn -> inspect(body) end
+    { :ok, Poison.Parser.parse!(body) }
+  end
+
+  def handle_response({_, %status_code: status, body: body}) do
+    Logger.error "EER #{status} returned"
+    { :error, Poison.Parser.parse!(body) }
+  end
+
+  @github_url Application.get_env(:issues, :github_url) do
+
+  def issues_url(user, project) do
+    "#{@github_url/respos/#{user}/#{project}/issues}"
+  end
+end
+
+
+
+
+
+
+
+
+
+
 
 
 
