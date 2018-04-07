@@ -20,6 +20,12 @@ end
 c("fizzbuzz.ex")
 FizzBuzz.upto(20)
 
+raise "ERR"
+raise RuntimeError
+raise RuntimeError, message: "override message"
+
+
+
 
 
 
