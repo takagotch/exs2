@@ -247,5 +247,41 @@ Enum.to_list odds
 Enum.map(1..10_000_000, &(&1+1)) |> Enum.take(5)
 Stream.map(1..10_000_000, &(&1+1)) |> Enum.take(5)
 
+Stream.cycle(~w{ str str }) |>
+Stream.zip(1..5) |>
+Enum.map(fn {class, values} ->
+  ~s{<tr class="#{class}"><td>#{value}</td></tr>\n} end) |>
+IO.puts
+
+Stream.repeatedly(fn -> true end) |> Enum.take(3)
+Stream.repeatedly(&:random.uniform/0) |> Enum.take(3)
+
+Stream.iterate(0, &(&1+1)) |> Enum.take(5)
+Stream.iterate(2, &(&1*&1)) |> Enum.take(5)
+Stream.iterate([], &(&1)) |>Enum.take(5)
+
+fn state -> { stream_value, new_state } end
+Stream.unfold({0,1}, fn {f1,f2} -> {f1, {f2, f1+f2}} end) |> Enum.take(15)
+
+/*
+Stream.resource(fn -> File.open!("sample") end,
+  fn file ->
+    case IO.read(file, :line) do
+      data when is_binary(data) -> {{data}, file}
+      _ -> {:halt, file}
+    end
+  end,
+  fn file -> File.close(file) end)
+*/
+
+iex countdown.exs
+counter = Countdown.timer
+printer = counter |> Stream.each(&IO.puts/1)
+speaker = printer |> Stream.each(&Countdown.say/1)
+
+speaker |> Enum.take(5)
+speaker |> Enum.take(3)
+speaker |> Enum.to_list
+
 
 
