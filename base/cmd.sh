@@ -244,8 +244,8 @@ plus_ones = Stream.map squares, &(&1+1)
 odds = Stream.filter plus_ones, fn x -> rem(x,2) == 1 end
 Enum.to_list odds
 
-Enum.map() |> Enum.take(5)
-Stream.map() |> Enum.take(5)
+Enum.map(1..10_000_000, &(&1+1)) |> Enum.take(5)
+Stream.map(1..10_000_000, &(&1+1)) |> Enum.take(5)
 
 
 
