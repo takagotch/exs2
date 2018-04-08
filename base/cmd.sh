@@ -284,4 +284,29 @@ speaker |> Enum.take(3)
 speaker |> Enum.to_list
 
 
+Enum.into 1..5, []
+Enum.into 1..5, [100, 101]
+Enum.into IO.stream(:stdio, :line), IO.stream(:stdio, :line)
+
+for x <- [ 1, 2, 3, 4, 5 ], do: x * x
+for x <- [ 1, 2, 3, 4, 5 ], x < 4, do: x * x
+pattern <- enumerable_thing
+x <- [1,2], y <- [5,6]
+for x <- [1,2], y <- [5,6], do: x * y
+for x <- [1,2], y <- [5,6], do: {x, y}
+
+min_maxes = [{1,4}, {2,3}, {10, 15}]
+for {min, max} <- min_maxes, n <- min..max, do: n
+
+
+
+
+
+
+
+
+
+
+
+
 
