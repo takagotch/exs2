@@ -396,3 +396,111 @@ Attendee.print_vip_badge(a2)
 a3 = %Attendee{}
 Attendee.print_vip_badge(a3)
 
+report = %BugReport{owner: %Customer{name: "Tky", company: "TK"}, details: "broken"}
+report.owner.company
+report = %BugReport{ report | owner: %Customer{ report.owner | company: "Tky" }}
+put_in(report.owner.company, "Tky")
+update_in(report.owner.name, &("Mr. " <> &1))
+report = %{ owner: %{ name: "Tky", company: "Tky" }, secerity: 1}
+put_in(report[:owner][:company], "Tky")
+update_in(report[:owner][:name], &("Mr. " <> &1))
+
+/*
+get_in no (dict, keys)
+put_in (path, value) (dict, keys, value)
+update_in (path, fn) (dict, keys, fn)
+get_and_update_in (path, fn) (dict, keys, fn)
+*/
+
+
+set1 = Enum.into 1..5, MapSet.new
+MapSet.member? set1, 3
+set2 = Enum.into 3..8, MapSet.new
+MapSet.union set1, set2
+MapSet.difference set1, set2
+MapSet.difference set2, set1
+MapSet.intersection set1, set2
+
+//map
+[ 3 | [] ]
+[ 2 | [ 3 | [] ] ]
+
+[ 1 | [ 2 | [ 3 | [] ] ] ]
+
+[a, b, c ] = [ 1, 2, 3]
+a
+b
+c
+
+[ head | tail ] = [ 1, 2, 3 ]
+head
+tail
+
+[99, 97, 116]
+[99, 97, 116, 0]
+[99, 97, 116, 0]
+
+c "mylist.exs"
+MyList.len([])
+MyList.len([11,12,13,14,15])
+
+c "myList.exs"
+MyList.len([1,2,3,4,5])
+MyList.len(["str", "str"])
+
+c "mylist.exs"
+MyList.square []
+MyList.square [4,5,6]
+
+c "mylist.exs"
+MyList.add_1 [1000]
+MyList.add_1 [4,6,8]
+
+c "mylist.exs"
+MyList.map [1,2,3,4], fn (n) -> n*n end
+MyList.map [1,2,3,4], fn (n) -> n+1 end
+MyList.map [1,2,3,4], fn (n) -> n > 2 end
+MyList.map [1,2,3,4], &(&1 + 1)
+MyList.map [1,2,3,4], &(&1 > 2)
+
+
+c "sum.exs"
+MyList.sum([1,2,3,4,5], 0)
+MyList.sum([11,12,13,14,15], 0)
+
+c "reduce.exs"
+MyList.reduce([1,2,3,4,5], 0, &(&1 + &2))
+MyList.reduce([1,2,3,4,5], 1, &(&1 + &2))
+
+MyList.mapsum [1, 2, 3], &(&1 * &1)
+MyList.caesar('ryvkve', 13)
+
+[ 1, 2, 3 | [ 4, 5, 6]]
+
+c "swap.exs"
+Swapper.swqp [1,2,3,4,5,6]
+Swapper.swap [1,2,3,4,5,6,7]
+
+c "weather.exs"
+import WeatherHistroy
+for_location_27(test_data)
+
+
+[1,2,3] ++ [4,5,6]
+List.flatten([[[1], 2], [[[3]]]])
+
+List.fold([], "", fn value, acc -> "" end)
+List.foldr([], "", fn value, acc -> "" end)
+
+list = [ 1, 2, 3 ]
+List.replace_at(list, 2, "str")
+kw = []
+List.keyfind()
+List.keyfind()
+LIst.keyfind()
+List.keyfind()
+kw = List.keydelete()
+k2 = List.keyreplace()
+
+
+

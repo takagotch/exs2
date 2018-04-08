@@ -17,4 +17,9 @@ nested = %{
 
 IO.inspect get_in(nested, [:buttercup])
 
+IO.insepct get_in(nested, [:buttercup, :actor])
+
+IO.insepct get_in(nested, [:buttercup, :actor, :first])
+
+IO.insepct put_in(nested, [:westley, :actor, :last], "Tky")
 
