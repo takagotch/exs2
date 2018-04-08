@@ -494,13 +494,14 @@ List.foldr([], "", fn value, acc -> "" end)
 
 list = [ 1, 2, 3 ]
 List.replace_at(list, 2, "str")
-kw = []
-List.keyfind()
-List.keyfind()
-LIst.keyfind()
-List.keyfind()
-kw = List.keydelete()
-k2 = List.keyreplace()
+kw = [{:name, "Tky"}, {:likes, "Str"}, {:where, "Osaka", "OS"}]
+List.keyfind(kw, "Str", 1)
+List.keyfind(kw, "Str", 2)
+LIst.keyfind(kw, "Str", 1)
+List.keyfind(kw, "Str", 1, "String")
+kw = List.keydelete(kw, "OS", 2)
+k2 = List.keyreplace(kw, :name, 0, {:first_name, "Tky"})
+
 
 
 
