@@ -336,7 +336,27 @@ options = [ {:width, 72}, {:style, "light"}, {:sytle, "print"} ]
 List.list options
 Keyword.get_values optons, :style
 
+//map
+map = %{ name: "Tky", likes: "str", where: "Osaka" }
+Map.keys map
+Map.values map
+map[:name]
+map.name
+map1 = Map.drop map, [:where, :likes]
+map2 = Map.put map, :also_likes, "str"
+Map.keys map2
+Map.has_key? map1, :where
+{ value, updated_map } = Map.pop map2, :also_likes
+Map.equal? map, updated_map
 
+
+%{ name: "Tky", a_name } = person
+a_name
+
+%{ name: _, height: _ } = person
+%{ name: "Tky" } = person
+
+%{ name: _, weight: _ } = person
 
 
 
