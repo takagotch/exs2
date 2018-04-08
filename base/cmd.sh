@@ -303,13 +303,13 @@ for x <- first8, y <- first8, x >= y, rem(x*y, 10)==0, do: { x, y }
 reports = [ str: :str, str: :str, str: :str, str: str]
 for { str, str } <- reports, do: { str, str }
 
-for << ch <- "" >>, do: ch
-for << ch <- "" >>, do: <<ch>>
+for << ch <- "str" >>, do: ch
+for << ch <- "str" >>, do: <<ch>>
 
-for << << b1::size(2), b2::size(3), b3::size(3) >> <- "" >>,
+for << << b1::size(2), b2::size(3), b3::size(3) >> <- "str" >>,
 
-name = ""
-for name <- [], do: String.upcase()
+name = "Tky"
+for name <- [ "str", "str" ], do: String.upcase(name)
 name
 
 for x <- ~w{}, into: %{}, do: { x, String.upcase(x) }
