@@ -331,6 +331,10 @@ orders = [
   [ id: 130, ship_to: :NC, net_amount:  50.00] ]
 
 
+options = [ {:width, 72}, {:style, "light"}, {:style, "print"} ]
+options = [ {:width, 72}, {:style, "light"}, {:sytle, "print"} ]
+List.list options
+Keyword.get_values optons, :style
 
 
 
