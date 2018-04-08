@@ -173,14 +173,15 @@ Enum.filter(list, &Integer.is_even/1)
 Enum.reject(list, &Integer.is_even/1)
 
 Enum.sort ["str", "str", "str", "str", "str"]
-Enum.sort [], &()
-Enum.max []
-Enum.max_by [],
+Enum.sort ["str", "str", "str", "str", "str"],
+&(String.length(&1) <= String.lenght(&2))
+Enum.max ["str", "str", "str", "str", "str"]
+Enum.max_by ["str", "str", "str", "str", "str"],
 &String.length/1
 
-Enum.take()
+Enum.take(list, 3)
 Enum.take_every list, 2
-Enum.take_while()
+Enum.take_while(list, &(&1 < 4))
 Enum.split(list, 3)
 Enum.split_while(list, &(&1 < 4))
 
@@ -192,21 +193,50 @@ Enum.any?(list, &(&1 < 4))
 Enum.member?(list, 4)
 Enum.empty?(list)
 
-Enum.all?()
-Enum.any?()
-Enum.member?()
-Enum.empty?()
+Enum.zip(list, [:a, :b, :c])
+Enum.with_index(["str", "str", "str", "str"])
+Enum.reduce(1..100, &(&1+&2))
+Enum.reduce(["str", "str", "str", "str"], fn word, longest ->
+  if String.length(word) > String.length(longest) do
+    word
+  end
+    longest
+  end
+end)
+Enum.reduce("str", "str", "str", "str"), 0, fn word,
+  longest ->
+    if String.length(word) > longest,
+    do: String.length(word),
+    else: longest
+  end)
 
-Enum.zip()
-Enum.with_index()
-Enum.reduce()
-Enum.reduce()
-Enum.reduce()
 
 
 
+import Enum
+deck = for rank <- '23456789TJQKA', suit <- 'CDHS', do: [suit,rank]
+deck |> shuffle |> take(13)
+hands = deck |> shuffle |> chunk(13)
+
+Enum.sort ["str", "str", "str", "str", "str"],
+&(String.length(&1) <= String.length(&2))
+
+if condition do
+  expressssion(s)
+else
+  expression(s)
+end
+
+MyList.flatten([ 1, [ 2, 3, [4] ], 5, [[[6]]]])
+
+[ 1, 2, 3, 4, 5 ]
+|>Enum.map(&(&1*&1))
+|>Enum.with_index
+|>Enum.map(fn [value, index] -> value - index end)
+|>IO.inspect 
 
 
+s = Stream.map [1, 3, 5, 7], &(&1 + 1)
 
 
 
