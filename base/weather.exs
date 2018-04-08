@@ -52,13 +52,13 @@ defmodule WeatherHistroy do
 
 end
 
-//def for_location()
-//def for_location()
-//def for_location()
-//  []
+//def for_location([ head = [_, target_loc, _, _ ] | tail], target_loc)
+//def for_location([ [ time, target_loc, temp, rain ] | tail], target_loc)
+//def for_location([ [ time, target_loc, temp, rain ] | tail], target_loc)
+//  [ [time, target_loc, temp, rain ] | for_location(tail, target_loc) ]
 //end
-//def for_location() do
-//  []
+//def for_location([ head = [_, target_loc, _, _ ] | tail], target_loc) do
+//  [ head | for_locaiton(tail, target_loc) ]
 //end
 
 
