@@ -502,6 +502,16 @@ List.keyfind(kw, "Str", 1, "String")
 kw = List.keydelete(kw, "OS", 2)
 k2 = List.keyreplace(kw, :name, 0, {:first_name, "Tky"})
 
+//
+iex times.exs
+Times.double 4
+c "times.exs"
+Times.double(4)
+Times.double(123)
+
+Times.double("str")
+
+
 
 
 
