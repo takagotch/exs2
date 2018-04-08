@@ -360,4 +360,39 @@ a_name
 
 
 
+%{ 2 => state } = %{ 1 => :ok, 2 => :error }
+state
+
+%{ item => :ok } = %{ 1 => :ok, 2 => :error }
+data = %{ name: "Tky", state: "TX", likes: "str" }
+for key <- [ :name, :likes ] do
+  %{ ^key => value } = data
+  value
+end
+
+new_map = %{ old_map | key => value, ... }
+
+m = %{ a: 1, b: 2, c:3 }
+m1 = %{ m | b: "str", "str" }
+m2 = %{ m1 | a: "str" }
+
+iex defstruct.exs
+s1 = %Subscriber()
+s2 = %Subscriber{ name: "Tky" }
+s3 = %Subscriber{ name: "Tky", paid: true }
+
+s3.name
+%Subscriber{name: a_name} = s3
+a_name
+s4 = %Subscriber{ s3 | name: "Str" }
+
+
+iex defstruct.exs
+a1 = %Attendee{name: "Tky", over_18: true}
+Attende.may_attend_after_party(a1)
+a2 = %Attendee{a1 | paid: true}
+Attendee.may_attend_after_party(a2)
+Attendee.print_vip_badge(a2)
+a3 = %Attendee{}
+Attendee.print_vip_badge(a3)
 
