@@ -298,8 +298,25 @@ for x <- [1,2], y <- [5,6], do: {x, y}
 min_maxes = [{1,4}, {2,3}, {10, 15}]
 for {min, max} <- min_maxes, n <- min..max, do: n
 
+first8 = [ 1,2,3,4,5,6,7,8 ]
+for x <- first8, y <- first8, x >= y, rem(x*y, 10)==0, do: { x, y }
+reports = [ str: :str, str: :str, str: :str, str: str]
+for { str, str } <- reports, do: { str, str }
 
+for << ch <- "" >>, do: ch
+for << ch <- "" >>, do: <<ch>>
 
+for << << b1::size(2), b2::size(3), b3::size(3) >> <- "" >>,
+
+name = ""
+for name <- [], do: String.upcase()
+name
+
+for x <- ~w{}, into: %{}, do: { x, String.upcase(x) }
+for x <- ~w{}, into: Map.new, do: { x, String.upcase(x) }
+for x <- ~w{}, into: %{}, do: { x, String.upcase(x) }
+
+for x <- ~w{}, into: IO.stream(), do: ""
 
 
 
