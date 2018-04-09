@@ -550,3 +550,103 @@ IO.puts 123
 
 :io.format("The number is -3.1f-n", [5.678])
 
+//fn
+sum = fn(a, b) -> a + b end
+sum.(1, 2)
+
+fn -> IO.puts "Hello" end
+greet.()
+
+f1 = fn a, b -> a * b end
+f1.(5,6)
+f2 = fn -> 99 end
+f2.()
+
+a = 2
+
+swap = fn { a, b } -> { b, a } end
+swap.{ { 6, 8 } }
+
+/*
+  list_concat.([:a, :b], [:c, :d])
+  sum.(1, 2, 3)
+  pair_tuple_to_list.{ { 1234, 5678 } }
+*/
+
+
+
+handle_open = fn 
+  {:ok, file} -> " #{IO.read(file, :line)} "
+  {_, error} -> " #{:file.format_error(error)}"
+end
+
+handle_open.(File.open("code/intro/hello.exs"))
+handle_open.(File.open("nonexistenet"))
+
+
+c "handle_open.exs"
+elixir handle_open.exs
+
+
+fun1 = fn -> fn -> "Hello" end end
+fun1.()
+fun1.().()
+
+
+fun1 = fn -> (fn -> "Hello" end) end
+other = fun1.()
+other.()
+
+greeter = fn name -> (fn -> "Hello #{name}" end) end
+tky_greeter = greeter.["Tky"]
+tky_greeter.()
+
+add_n = fn n -> (fn other -> n + other end) end
+add_two = add_n.(2)
+add_five = add_n.(5)
+
+
+add_two.(3)
+add_five.(7)
+
+mrs = prefix.("Mrs")
+mrs.("Str")
+prefix.("Str").("Str")
+
+times_2 = fn n -> n * 2 end
+fn(fun, value) -> fun.(value) end
+apply.(times_2, 6)
+
+list = [1, 3, 5, 7, 9]
+Enum.mapList, fn elem -> elem * 2 end
+Enum.map list, fn elem -> elem * elem end
+Enum.map list, fn elem -> elemn > 6 end
+
+add_one = &(&1 + 1)
+add_one.(44)
+square = &(&1 * &1)
+square.(8)
+speak = &(IO.puts(&1))
+speak.("Hello")
+
+rnd = &(Float.round(&1, &2))
+rnd = &(Float.round(&2, &1))
+
+divrem = &( div(&1,&2), rem(&1,&2) )
+divrem.(13, 5)
+
+1 = &length/1
+1.([1,3,5,7])
+len = &Enum.count/1
+len.([1,2,3,4])
+
+m = &Kernel.min/2
+m.(99.88)
+
+
+Enum.map [1,2,3,4], &(&1 + 1)
+Enum.map [1,2,3,4], &(&1 * &1)
+Enum.map [1,2,3,4], &(&1 < 3)
+
+
+
