@@ -513,5 +513,10 @@ Times.double("str")
 
 
 
+c "factorial.exs"
+Factorila.of(3)
+Factorial.of(7)
+Factorial.of(1000)
+
 
 
