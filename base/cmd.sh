@@ -541,4 +541,12 @@ Factorial.of -100
 Chop.guess(273, 1..1000)
 
 
+is_atom IO
+to_string IO
+:"Elixir.IO" === IO
+
+IO.puts 123
+:"Elixir.IO".puts 123
+
+:io.format("The number is -3.1f-n", [5.678])
 
