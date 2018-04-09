@@ -520,5 +520,25 @@ Factorial.of(1000)
 
 c "factoriall-bad.exs"
 
+c "factorial.exs"
+Factorial.of -100
+
+/*
+  ==, !=, ===, !==, >, <, <=, >=
+  of, and, not, !
+  +, -, *, /
+  <>, ++
+  is_atom, is_binary, is_bitstring, is_boolean, is_exception,
+  is_float, is_function, is_integer, is_list, is_map, is_number,
+  is_pid, is_port, is_record, is_reference, is_tuple
+
+  abs(number), bit_size(bitstring), byte_size(bitstring),
+  div(number,number), elem(tuple, n), float(term), hd(list),
+  length(list), node(), node(pid|ref|port), rem(number,number),
+  round(number), self(), tl(list), trunc(number), tuple_size(tuple)
+*/
+
+Chop.guess(273, 1..1000)
+
 
 
