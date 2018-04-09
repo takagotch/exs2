@@ -649,4 +649,57 @@ Enum.map [1,2,3,4], &(&1 * &1)
 Enum.map [1,2,3,4], &(&1 < 3)
 
 
+//
+Regex.run ~r[[aiueo]], "caterplillar"
+Regex.scan ~r[[aiueo]], "caterplillar"
+Regex.split ~r[[aiueo]], "caterpillar"
+Regex.replace ~r[[aiueo]], "caterpiller", "*"
+
+{status, count, action} = {:ok, 42, "next"}
+status
+count
+action
+{status, file} = File.open("Rakefile")
+
+{ :ok, file } = File.open("Rakefile")
+{ :ok, file } = File.open("non-existent-file")
+
+[ 1, 2, 3 ] ++ [ 4, 5, 6 ]
+[1, 2, 3, 4, 5, 6] -- [2, 4]
+1 in [1,2,3,4]
+"wombat" in [1,2,3,4]
+
+
+[1, fred: 1, tky: 2]
+[1, fred: 1, tky: 2]
+
+states = %{ "TK" => "taka", "tk" => "taka"}
+responses = %{ { :error, :enoent } => fatal, { :error, :busy } => :retry }
+colors = %{ :red => 0xff0000, :green => 0x00ff00, :blue => 0x0000ff }
+
+%{ "str" => 1, :two => 2, (1,1,1) => 3}
+colors = %{ red: 0xff0000, green: 0x00ff00, blue: 0x0000ff }
+name = "tky str"
+%{ String.downcase(name) => name } 
+
+states = %{ "TK" => "tky", "TT" => "Tata" }
+states["TK"]
+states["TT"]
+
+colors = %{ red: 0xff0000, green: 0x00ff00, blue: 0x0000ff }
+colors[:red]
+colors.green
+
+bin = << 1, 2 >>
+byte_size bin
+
+bin = <<3 :: size(2), 5 :: size(4), 1 :: size(2)>>
+:io.format("--8.2b-n", :binary.bin_to_list(bin))
+byte_size bin
+
+with [a|_] <= [1,2,3], do: a
+with [a|_] <- nil, do: a
+
+
+
 
