@@ -518,5 +518,7 @@ Factorila.of(3)
 Factorial.of(7)
 Factorial.of(1000)
 
+c "factoriall-bad.exs"
+
 
 
