@@ -703,3 +703,43 @@ with [a|_] <- nil, do: a
 
 
 
+list1 = [ 3, 2, 1 ]
+list2 = [ 4 | list1 ]
+
+name = "tk"
+cap_name = String.capitalize name
+name
+
+
+a = 1
+a + 3
+a = 1
+1 = a
+2 = a
+
+list = [ 1, 2, 3 ]
+
+list = [1, 2, 3]
+[a, b, c] = list
+a
+b
+c
+
+list = [1, 2, [ 3, 4, 5 ] ]
+[a, b, c] = list
+a
+b
+c
+
+list = [1, 2, 3]
+[a, 2, b ] = list
+a
+b
+
+list = [1, 2, 3]
+[a, 1, b ] = list
+
+
+
+
+

@@ -41,3 +41,20 @@ list1 -- list2
 a in enum
 
 
+
+
+//
+
+count = 99
+do_something_with(count)
+print(count)
+
+array = [ 1, 2, 3 ]
+do_something_with(array)
+print(array)
+
+{ "str", "str", "str" }
+{ "str", "str", [ "str", 12 ] }
+
+
+
