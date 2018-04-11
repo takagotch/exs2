@@ -23,6 +23,7 @@ mix new evaluator
 cd
 mix compile
 
+mix test
 
 
 
